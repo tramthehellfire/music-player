@@ -1,119 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>TramTron - Your MY music is here</title>
-        <link rel="stylesheet" href="style.css">
-        </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TramTron - Your MY music is here</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <nav>
         <ul>
-            <li class="brand"><img src="logo.png" alt="Spotify"> TramTron</li>
-            <!--<li>Home</li>
-              <li>About</li>-->
+            <li class="brand"><img src="logo.png" alt="Music player"> TramTron</li>
         </ul>
     </nav>
 
     <div class="container">
         <div class="songList">
-            <h1><B>My Songs</B></h1>
+            <h1><b>My Songs</b></h1>
             <div class="songItemContainer">
-				
-				  <div class="songItem">
-                    <img alt="1">
-                    <span class="songName"><b>translunt</b> </span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="0" class="far songItemPlay fa-play-circle"></i> </span></span>
+                <div class="songItem" data-song-path="songs/1.mp3" data-song-name="Translunt">
+                    <img alt="1" src="covers/1.jpg">
+                    <span class="songName"><b>Translunt</b></span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
-				
-				
-             
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Cult of Personality</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="1" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">U Cant C me</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="2" class="far songItemPlay fa-play-circle"></i> </span></span>
+                <div class="songItem" data-song-path="songs/2.mp3" data-song-name="Cult of personality">
+                    <img alt="1" src="covers/2.jpg">
+                    <span class="songName">Cult of personality</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Alter Edge</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="3" class="far songItemPlay fa-play-circle"></i> </span></span>
+                <div class="songItem" data-song-path="songs/3.mp3" data-song-name="its my time">
+                    <img alt="1" src="covers/3.jpg">
+                    <span class="songName">its my time</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">mortal kombat</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="4" class="far songItemPlay fa-play-circle"></i> </span></span>
+                
+                 <div class="songItem" data-song-path="songs/4.mp3" data-song-name="u think u know me">
+                    <img alt="1" src="covers/4.jpg">
+                    <span class="songName">u think u know me</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">judas</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="5" class="far songItemPlay fa-play-circle"></i> </span></span>
+                
+                   <div class="songItem" data-song-path="songs/5.mp3" data-song-name="mortal kombat">
+                    <img alt="1" src="covers/mk.jpg">
+                    <span class="songName">Mortal Kombat</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Booyaka</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="6" class="far songItemPlay fa-play-circle"></i> </span></span>
+                   <div class="songItem" data-song-path="songs/6.mp3" data-song-name="Y2J">
+                    <img alt="1" src="covers/5.jpg">
+                    <span class="songName">Judas</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Thunder</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="7" class="far songItemPlay fa-play-circle"></i> </span></span>
+                
+                    <div class="songItem" data-song-path="songs/7.mp3" data-song-name="Mysterio">
+                    <img alt="1" src="covers/6.jpg">
+                    <span class="songName">Mysterio</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
+                    <div class="songItem" data-song-path="songs/8.mp3" data-song-name="Despacito">
+                    <img alt="1" src="covers/7.jpg">
                     <span class="songName">Despacito</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="8" class="far songItemPlay fa-play-circle"></i> </span></span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">La gente</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="9" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                
-                <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Siya Ram--Hanuman</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="10" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                
-                 <div class="songItem">
-                    <img alt="1">
-                    <span class="songName">Time to play the games</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="11" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                
-                  <div class="songItem">
-                    <img alt="1">
-                    <span class="songName"><b>Asma ko</b> </span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="12" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-                
-                 <div class="songItem">
-                    <img alt="1">
-                    <span class="songName"><b>bagam bam </b> </span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i id="13" class="far songItemPlay fa-play-circle"></i> </span></span>
-                </div>
-               
-                 <div class="songItem">
-                    <img alt="1">
-                    <span class="songName"><b>shree ram JAnki</b> </span>
-                    <span class="songlistplay"><span class="timestamp">06:34 <i id="14" class="far songItemPlay fa-play-circle"></i> </span></span>
+                  <div class="songItem" data-song-path="songs/9.mp3" data-song-name="thunder">
+                    <img alt="1" src="covers/15.gif">
+                    <span class="songName">Thunder</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
                 </div>
                 
                 
+                    <div class="songItem" data-song-path="songs/10.mp3" data-song-name="Gente">
+                    <img alt="1" src="covers/8.jpg">
+                    <span class="songName">gente</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
+                </div>
+                
+                
+                 <div class="songItem" data-song-path="songs/11.mp3" data-song-name="Hanuman">
+                    <img alt="1" src="covers/10.jpg">
+                    <span class="songName">Kesari ke lal</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
+                </div>
+                
+                
+                  
+                 <div class="songItem" data-song-path="songs/12.mp3" data-song-name="Game">
+                    <img alt="1" src="covers/11.jpg">
+                    <span class="songName">Game</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
+                </div>
+                
+                
+                 <div class="songItem" data-song-path="songs/13.mp3" data-song-name="Hanuman">
+                    <img alt="1" src="covers/12.jpg">
+                    <span class="songName">asma ko chukar</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
+                </div>
+                
+                       
+                 <div class="songItem" data-song-path="songs/14.mp3" data-song-name="God of God">
+                    <img alt="1" src="covers/13.gif">
+                    <span class="songName">shiva</span>
+                    <span class="songlistplay">
+                        <span class="timestamp">05:34
+                            <button class="songItemPlay">Play</button>
+                        </span>
+                    </span>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="songItem" data-song-path="songs/15.mp3" data-song-name="Shree RaM janki">
+                    <img alt="1" src="covers/14.jpg">
+                    <span class="songName"><b>Shree RaM janki</b></span>
+                    <span class="songlistplay"><span class="timestamp">06:34 <button class="songItemPlay">Play</button></span></span>
+                </div>
+
             </div>
         </div>
         <div class="songBanner"></div>
@@ -121,25 +191,15 @@
 
     <div class="bottom">
         <input type="range" name="range" id="myProgressBar" min="0" value="0" max="100">
-        
-       
-        
-        
-        
         <div class="icons">
-         
-            <i class="fas fa-3x fa-step-backward" id="previous"></i>
-            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
-            <i class="fas fa-3x fa-step-forward" id="next"></i> 
+            <button id="previous">Previous</button>
+            <button id="masterPlay">Play</button>
+            <button id="next">Next</button>
         </div>
-        
-        
         <div class="songInfo">
-            <img src="playing.gif" width="10px" alt="" id="gif"> <span id="masterSongName">Cult of personality</span>
+            <img src="playing.gif" width="10px" alt="" id="gif"> <span id="masterSongName"></span>
         </div>
-    
     </div>
     <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
 </body>
 </html>
