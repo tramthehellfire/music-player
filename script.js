@@ -1,125 +1,79 @@
-console.log("स्वागत  to TramTron");
+console.log("Welcome to TramTron");
 
-// Initialize the Variables
 let songIndex = 0;
-let audioElement = new Audio('songs/1.mp3');
+let audioElement = new Audio();
 let masterPlay = document.getElementById('masterPlay');
 let myProgressBar = document.getElementById('myProgressBar');
 let gif = document.getElementById('gif');
 let masterSongName = document.getElementById('masterSongName');
 let songItems = Array.from(document.getElementsByClassName('songItem'));
 
-let songs = [
-	   /* 0*/{songName: "Translunt", filePath: "songs/13.mp3", coverPath: "covers/1.jpg"},
-     /* 1*/{songName: "Cult", filePath: "songs/1.mp3", coverPath: "covers/2.jpg"},
-     /* 2*/{songName: "its my time", filePath: "songs/2.mp3", coverPath: "covers/3.jpg"},
-     /* 3*/{songName: "Alter Edge", filePath: "songs/3.mp3", coverPath: "covers/4.jpg"},
-     /* 4*/{songName: "MK", filePath: "songs/4.mp3", coverPath: "covers/mk.jpg"},
-     /* 5*/{songName: "judas", filePath: "songs/5.mp3", coverPath: "covers/5.jpg"},
-     /* 6*/{songName: "Booyaka", filePath: "songs/6.mp3", coverPath: "covers/6.jpg"},
-     /* 7*/{songName: "Despacito", filePath: "songs/7.mp3", coverPath: "covers/7.jpg"},
-     /* 8*/{songName: "Thunder", filePath: "songs/8.mp3", coverPath: "covers/thunder.gif"},
-     /* 9*/{songName: "Gente", filePath: "songs/9.mp3", coverPath: "covers/8.jpg"},
-     /*10*/{songName: "अरे केसरी के लाल", filePath: "songs/10.mp3", coverPath: "covers/10.jpg"},
-      /*11*/{songName: "GAME", filePath: "songs/11.mp3", coverPath: "covers/11.jpg"},
-     /*12*/{songName: "अस्मा को चुकर देखा", filePath: "songs/12.mp3", coverPath: "covers/12.jpg"},
- /*13*/{songName: "बगड़ बम बम बम लहरी", filePath: "songs/14.mp3",coverPath:"covers/13.gif"},   
-/*14 */{songName: "Shree Ra janki", filePath: "songs/15.mp3",coverPath:"covers/14.jpg"},
-]
+songItems.forEach(element => {
+    element.addEventListener('click', () => {
+        let songPath = element.dataset.songPath;
+        let songName = element.dataset.songName;
 
+        if (audioElement.src !== songPath || audioElement.paused) {
+            audioElement.src = songPath;
+            masterSongName.innerText = songName;
+            audioElement.currentTime = 0;
+            audioElement.play().catch(error => {
+                console.error("Autoplay prevented:", error);
+                alert("Please interact with the page first to enable audio.");
+            });
+            gif.style.opacity = 1;
+            masterPlay.innerText = "Pause"; // Update master play button text
+        } else {
+            audioElement.pause();
+            gif.style.opacity = 0;
+            masterPlay.innerText = "Play"; // Update master play button text
+        }
+    });
+});
 
-
-
-songItems.forEach((element, i)=>{ 
-    element.getElementsByTagName("img")[0].src = songs[i].coverPath; 
-    element.getElementsByClassName("songName")[0].innerText = songs[i].songName; 
-   
-})
-
-
-
-
- 
- 
- 
- 
-
-// Handle play/pause click
-masterPlay.addEventListener('click', ()=>{
-    if(audioElement.paused || audioElement.currentTime<=0){
+masterPlay.addEventListener('click', () => {
+    if (audioElement.paused) {
         audioElement.play();
-        masterPlay.classList.remove('fa-play-circle');
-        masterPlay.classList.add('fa-pause-circle');
         gif.style.opacity = 1;
-    }
-    else{
+        masterPlay.innerText = "Pause";
+    } else {
         audioElement.pause();
-        masterPlay.classList.remove('fa-pause-circle');
-        masterPlay.classList.add('fa-play-circle');
         gif.style.opacity = 0;
+        masterPlay.innerText = "Play";
     }
-})
-// Listen to Events
-audioElement.addEventListener('timeupdate', ()=>{ 
-    // Update Seekbar
-    progress = parseInt((audioElement.currentTime/audioElement.duration)* 100); 
+});
+
+audioElement.addEventListener('timeupdate', () => {
+    if (isNaN(audioElement.duration)) return;
+    let progress = parseInt((audioElement.currentTime / audioElement.duration) * 100);
     myProgressBar.value = progress;
-})
+});
 
-myProgressBar.addEventListener('change', ()=>{
-    audioElement.currentTime = myProgressBar.value * audioElement.duration/100;
-})
+myProgressBar.addEventListener('change', () => {
+    if (isNaN(audioElement.duration)) return;
+    audioElement.currentTime = myProgressBar.value * audioElement.duration / 100;
+});
 
-const makeAllPlays = ()=>{
-    Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-        element.classList.remove('fa-pause-circle');
-        element.classList.add('fa-play-circle');
-    })
+document.getElementById('next').addEventListener('click', () => {
+    songIndex = (songIndex + 1) % songItems.length;
+    playSong(songIndex);
+});
+
+document.getElementById('previous').addEventListener('click', () => {
+    songIndex = (songIndex - 1 + songItems.length) % songItems.length;
+    playSong(songIndex);
+});
+
+function playSong(index) {
+    let songPath = songItems[index].dataset.songPath;
+    let songName = songItems[index].dataset.songName;
+    audioElement.src = songPath;
+    masterSongName.innerText = songName;
+    audioElement.currentTime = 0;
+    audioElement.play().catch(error => {
+        console.error("Autoplay prevented:", error);
+        alert("Please interact with the page first to enable audio.");
+    });
+    gif.style.opacity = 1;
+    masterPlay.innerText = "Pause"; // Update master play button text
 }
-
-Array.from(document.getElementsByClassName('songItemPlay')).forEach((element)=>{
-    element.addEventListener('click', (e)=>{ 
-        makeAllPlays();
-        songIndex = parseInt(e.target.id);
-        e.target.classList.remove('fa-play-circle');
-        e.target.classList.add('fa-pause-circle');
-        audioElement.src = `songs/${songIndex+1}.mp3`;
-        masterSongName.innerText = songs[songIndex].songName;
-        audioElement.currentTime = 0;
-        audioElement.play();
-        gif.style.opacity = 1;
-        masterPlay.classList.remove('fa-play-circle');
-        masterPlay.classList.add('fa-pause-circle');
-    })
-})
-
-document.getElementById('next').addEventListener('click', ()=>{
-    if(songIndex>=15){
-        songIndex = 0
-    }
-    else{
-        songIndex += 1;
-    }
-    audioElement.src = `songs/${songIndex+1}.mp3`;
-    masterSongName.innerText = songs[songIndex].songName;
-    audioElement.currentTime = 0;
-    audioElement.play();
-    masterPlay.classList.remove('fa-play-circle');
-    masterPlay.classList.add('fa-pause-circle');
-
-})
-
-document.getElementById('previous').addEventListener('click', ()=>{
-    if(songIndex<=0){
-        songIndex = 0
-    }
-    else{
-        songIndex -= 1;
-    }
-    audioElement.src = `songs/${songIndex+1}.mp3`;
-    masterSongName.innerText = songs[songIndex].songName;
-    audioElement.currentTime = 0;
-    audioElement.play();
-    masterPlay.classList.remove('fa-play-circle');
-    masterPlay.classList.add('fa-pause-circle');
-})
